@@ -25,9 +25,19 @@ public class Main {
 
         int num = sc.nextInt();
         for (int i = 0; i < num; i++) {
-            int ran = rand.nextInt(10)+1;
+            int ran = rand.nextInt(11);
             numbers.add(ran);
         }
         System.out.println(numbers);
+
+        //How many of the absences did people have perfect attendance
+
+        int perfectCount = 0;
+        for (int i = 0; i < num; i++) {
+            if (numbers.get(i) == 0){
+                perfectCount ++;
+            }
+        }
+        System.out.println("\nThe number of perfect Attendances are: " + perfectCount);
     }
 }
