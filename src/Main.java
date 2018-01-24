@@ -52,6 +52,18 @@ public class Main {
             avg = sum / num;
         }
         System.out.println("The Average is :" + avg);
-    }
 
+
+        //TODO What percent of students had fewer than three absences
+
+        int absencesCount = 0;
+        double percentageOfAbs = 0;
+        for (int i = 0; i < num; i++) {
+            if (numbers.get(i) < 3){
+                absencesCount ++;
+            }
+        }
+        percentageOfAbs = absencesCount / 100;
+        System.out.println("The percentage of absences is :" + percentageOfAbs );
+    }
 }
