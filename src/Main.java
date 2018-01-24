@@ -61,9 +61,9 @@ public class Main {
         for (int i = 0; i < num; i++) {
             if (numbers.get(i) < 3){
                 absencesCount ++;
+                percentageOfAbs = absencesCount * .10;
             }
         }
-        percentageOfAbs = absencesCount / 100;
         System.out.println("The percentage of absences is :" + percentageOfAbs );
     }
 }
