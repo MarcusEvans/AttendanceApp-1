@@ -1,3 +1,5 @@
+package com.company;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -42,19 +44,14 @@ public class Main {
 
         //TODO What is the average of the attendances
 
-        ArrayList avg = average(numbers,num);
-        System.out.println("The average is " + avg);
-    }
-
-    public static ArrayList<Integer> average(ArrayList<Integer> answer, int storedNumOfVal) {
         int sum = 0;
         double avg = 0;
-        for (int i = 0; i < storedNumOfVal; i++) {
-            sum = answer.get(i) + sum;
-            avg = sum / answer.size();
+
+        for (int i = 0; i < num; i++) {
+            sum = numbers.get(i) + sum;
+            avg = sum / num;
         }
-        return answer;
+        System.out.println("The Average is :" + avg);
     }
 
 }
-
