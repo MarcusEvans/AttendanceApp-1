@@ -40,7 +40,7 @@ public class Main {
                 perfectCount++;
             }
         }
-        System.out.println("\nThe number of perfect Attendances are: " + perfectCount);
+        System.out.println("\nThe number of perfect Attendances are: " + perfectCount + "\n");
 
         //TODO What is the average of the attendances
 
@@ -51,7 +51,7 @@ public class Main {
             sum = numbers.get(i) + sum;
             avg = sum / num;
         }
-        System.out.println("The Average is :" + avg);
+        System.out.println("\nThe Average is :" + avg + "\n");
 
 
         //TODO What percent of students had fewer than three absences
@@ -61,9 +61,14 @@ public class Main {
         for (int i = 0; i < num; i++) {
             if (numbers.get(i) < 3){
                 absencesCount ++;
-                percentageOfAbs = absencesCount * .10;
+                percentageOfAbs = absencesCount / .10 ;
             }
         }
-        System.out.println("The percentage of absences is :" + percentageOfAbs );
+        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs * 10) + "\n" );
+
+        //TODO Which Students had X absences?
+
+        //System.out.println("How many absences are you looking for :");
+        //int numInput = sc.nextInt();
     }
 }
