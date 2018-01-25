@@ -25,6 +25,11 @@ public class Main {
 
         System.out.println("How many Absences would you like to output " + name + "\n");
 
+        //TODO Which Students had X absences?
+        ArrayList<Integer> studentAbs = findStudent(numbers, 3);
+        System.out.println(studentAbs);
+
+
         int num = sc.nextInt();
         for (int i = 0; i < num; i++) {
             int ran = rand.nextInt(11);
@@ -59,22 +64,21 @@ public class Main {
         int absencesCount = 0;
         double percentageOfAbs = 0;
         for (int i = 0; i < num; i++) {
-            if (numbers.get(i) < 3){
-                absencesCount ++;
-                percentageOfAbs = absencesCount / .10 ;
+            if (numbers.get(i) < 3) {
+                absencesCount++;
+                percentageOfAbs = absencesCount / .10;
             }
         }
-        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs * 10) + "\n" );
+        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs * 10) + "\n");
+    }
 
-        //TODO Which Students had X absences?
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Jamitha");
-        names.add("Sue");
-        names.add("Tom");
-        names.add("Mohib");
-
-
-        //System.out.println("How many absences are you looking for :");
-        //int numInput = sc.nextInt();
+    public static ArrayList<Integer> findStudent(ArrayList<Integer> numbers, int numOfValues) {
+        ArrayList<Integer> answer = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i)== numOfValues){
+                answer.add(i);
+            }
+        }
+        return answer;
     }
 }
