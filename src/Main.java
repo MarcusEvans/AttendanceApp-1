@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("\n\nHi, AttendanceApp!\n");
+        System.out.println("\n\n******* Welcome to the AttendanceApp!********");
 
         System.out.println("What is your name??\n");
 
@@ -66,10 +66,10 @@ public class Main {
         for (int i = 0; i < num; i++) {
             if (numbers.get(i) < 3) {
                 absencesCount++;
-                percentageOfAbs = absencesCount / .10;
+                percentageOfAbs = absencesCount * 10;
             }
         }
-        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs * 10) + "\n");
+        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs) + "\n");
     }
 
     public static ArrayList<Integer> findStudent(ArrayList<Integer> numbers, int numOfValues) {
