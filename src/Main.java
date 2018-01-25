@@ -67,6 +67,12 @@ public class Main {
         System.out.println("\nThe percentage of absences is :" + (percentageOfAbs * 10) + "\n" );
 
         //TODO Which Students had X absences?
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Jamitha");
+        names.add("Sue");
+        names.add("Tom");
+        names.add("Mohib");
+
 
         //System.out.println("How many absences are you looking for :");
         //int numInput = sc.nextInt();
