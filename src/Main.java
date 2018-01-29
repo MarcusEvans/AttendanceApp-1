@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("\n\n******* Welcome to the AttendanceApp!********");
+        System.out.println("\n\n******* Welcome to the AttendanceApp!********\n");
 
         System.out.println("What is your name??\n");
 
@@ -18,67 +18,49 @@ public class Main {
         System.out.println("\nHello " + name + "\n");
 
         //TODO Create and output List of absences
+        ArrayList<Integer> abscences = storedValues(20);
+        System.out.println("Abscences : " + abscences + "\n");
 
-        ArrayList<Integer> numbers = new ArrayList<>();
+        //TODO Find the index with perfect attendance
+        ArrayList perfectAbs = objects(abscences);
+        System.out.println("The Index with perfect Attendance's are : " + perfectAbs + "\n");
 
+        //TODO Find the average of all the abscences
+        double average = avg(abscences);
+        System.out.println("The average is : " + average);
+
+        //TODO
+
+    }
+
+    private static ArrayList<Integer> storedValues(int numOfValues) {
+        ArrayList<Integer> solution = new ArrayList<>();
         Random rand = new Random();
-
-        System.out.println("How many Absences would you like to output " + name + "\n");
-
-        //TODO Which Students had X absences?
-        ArrayList<Integer> studentAbs = findStudent(numbers, 3);
-        System.out.println(studentAbs);
-
-
-        int num = sc.nextInt();
-        for (int i = 0; i < num; i++) {
-            int ran = rand.nextInt(11);
-            numbers.add(ran);
+        for (int i = 0; i < numOfValues; i++) {
+            int num = rand.nextInt(11);
+            solution.add(num);
         }
-        System.out.println(numbers);
-
-        //TODO How many of the absences did people have perfect attendance
-
-        int perfectCount = 0;
-        for (int i = 0; i < num; i++) {
-            if (numbers.get(i) == 0) {
-                perfectCount++;
+        return solution;
+    }
+    private static ArrayList<Integer> objects(ArrayList<Integer> abscences) {
+        ArrayList<Integer> key = new ArrayList<>();
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i)== 0){
+                key.add(i);
             }
         }
-        System.out.println("\nThe number of perfect Attendances are: " + perfectCount + "\n");
-
-        //TODO What is the average of the attendances
-
+        return key ;
+    }
+    private static double avg(ArrayList<Integer> abscences) {
         int sum = 0;
         double avg = 0;
-
-        for (int i = 0; i < num; i++) {
-            sum = numbers.get(i) + sum;
-            avg = sum / num;
+        for (int i = 0; i < abscences.size(); i++) {
+            sum = sum + abscences.get(i);
+            avg = sum / abscences.size();
         }
-        System.out.println("\nThe Average is :" + avg + "\n");
-
-
-        //TODO What percent of students had fewer than three absences
-
-        int absencesCount = 0;
-        double percentageOfAbs = 0;
-        for (int i = 0; i < num; i++) {
-            if (numbers.get(i) < 3) {
-                absencesCount++;
-                percentageOfAbs = absencesCount * 10;
-            }
-        }
-        System.out.println("\nThe percentage of absences is :" + (percentageOfAbs) + "\n");
+        return avg;
     }
 
-    public static ArrayList<Integer> findStudent(ArrayList<Integer> numbers, int numOfValues) {
-        ArrayList<Integer> answer = new ArrayList<>();
-        for (int i = 0; i < numbers.size(); i++) {
-            if (numbers.get(i)== numOfValues){
-                answer.add(i);
-            }
-        }
-        return answer;
-    }
 }
+
+
