@@ -39,7 +39,11 @@ public class Main {
 
         //TODO Which Percentage of Students
         double failures = whichStudentFailed(abscences);
-        System.out.println("The Percentage of students who failed");
+        System.out.println("The Percentage of students who failed: " + failures + "\n");
+
+        //TODO Average of Smart Students
+        double smarties = whichStudentsComeToClass(abscences);
+        System.out.println("The Percentage of students that didnt FE: " + smarties);
 
     }
 
@@ -100,8 +104,18 @@ public class Main {
 
             }
         }
-        return (val1 * .10);
+        return val1;
 
+    }
+    private static double whichStudentsComeToClass(ArrayList<Integer> abscences) {
+        int sum = 0;
+        double averageOfSmart = 0;
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i) < 7);
+            sum = sum + 1;
+            averageOfSmart = sum / abscences.size();
+        }
+        return averageOfSmart;
     }
 
 
