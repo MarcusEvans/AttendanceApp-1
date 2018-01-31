@@ -27,9 +27,19 @@ public class Main {
 
         //TODO Find the average of all the abscences
         double average = avg(abscences);
-        System.out.println("The average is : " + average);
+        System.out.println("The average is : " + average + "\n");
 
-        //TODO
+        //TODO What percentage of students had fewer than three abscences and perfect attendance
+        double attendanceFinder = perfectPercentage(abscences);
+        System.out.println("The percentage of students with less than three abscenses and perfect attendance is : " + attendanceFinder + "\n");
+
+        //TODO WHich students had [x] abscences
+        ArrayList<Integer> AttendanceFinder = whichStudent(abscences,5);
+        System.out.println("These are the number of students with your desired amount of abscences: " + attendanceFinder + "\n");
+
+        //TODO Which Percentage of Students
+        double failures = whichStudentFailed(abscences);
+        System.out.println("The Percentage of students who failed");
 
     }
 
@@ -60,6 +70,40 @@ public class Main {
         }
         return avg;
     }
+    private static double perfectPercentage(ArrayList<Integer> abscences){
+        double val1 = 0;
+        double val2 = 0;
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i) < 3){
+                val1++;
+            if (abscences.get(i) == 0){
+                val2++;
+            }
+            }
+        }
+        return (val2 / val1)* 100;
+    }
+    public static ArrayList<Integer> whichStudent(ArrayList<Integer> abscences,int howManyAbscences){
+        ArrayList<Integer> solution = new ArrayList<>();
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i) == howManyAbscences){
+                solution.add(i);
+            }
+        }
+        return solution;
+    }
+    private static double whichStudentFailed(ArrayList<Integer> abscences) {
+        double val1 = 0;
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i) == 7){
+                val1 = abscences.get(i) + val1;
+
+            }
+        }
+        return (val1 * .10);
+
+    }
+
 
 }
 
