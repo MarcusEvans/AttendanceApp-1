@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -38,12 +36,20 @@ public class Main {
         System.out.println("These are the number of students with your desired amount of abscences: " + attendanceFinder + "\n");
 
         //TODO Which Percentage of Students
-        double failures = whichStudentFailed(abscences);
+        ArrayList<Integer> failures = whichStudentFailed(abscences);
         System.out.println("The Percentage of students who failed: " + failures + "\n");
 
         //TODO Average of Smart Students
         double smarties = whichStudentsComeToClass(abscences);
-        System.out.println("The Percentage of students that didnt FE: " + smarties);
+        System.out.println("The Percentage of students that didnt FE: " + smarties + "\n");
+
+        //TODO Add [X] to any elements greater than [Y]
+        ArrayList<Integer> elementChanger = changer(abscences,3,5);
+        System.out.println("The new ArrayList : " + elementChanger + "\n");
+
+        //TODO sort the abscences using the library function
+        Collections.sort(abscences);
+        System.out.println("The sorted abscences : " + abscences);
 
     }
 
@@ -96,29 +102,38 @@ public class Main {
         }
         return solution;
     }
-    private static double whichStudentFailed(ArrayList<Integer> abscences) {
-        double val1 = 0;
+    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> abscences) {
+        ArrayList<Integer> key = new ArrayList<>();
         for (int i = 0; i < abscences.size(); i++) {
             if (abscences.get(i) == 7){
-                val1 = abscences.get(i) + val1;
-
+                key.add(abscences.get(i));
             }
         }
-        return val1;
+        return key;
 
     }
     private static double whichStudentsComeToClass(ArrayList<Integer> abscences) {
-        int sum = 0;
+        double sum = 0;
         double averageOfSmart = 0;
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) < 7);
-            sum = sum + 1;
-            averageOfSmart = sum / abscences.size();
+            if (abscences.get(i) < 7) {
+                sum = sum + 1;
+                averageOfSmart = sum / abscences.size();
+            }
+
         }
-        return averageOfSmart;
+        return (averageOfSmart * 100);
+
     }
-
-
+    public static ArrayList<Integer> changer(ArrayList<Integer> abscences, int value, int bound) {
+        ArrayList<Integer> solution = new ArrayList<>();
+        for (int i = 0; i < abscences.size(); i++) {
+            if (abscences.get(i) > bound){
+                solution.add(abscences.get(i) + value);
+            }
+        }
+        return solution;
+    }
 }
 
 
