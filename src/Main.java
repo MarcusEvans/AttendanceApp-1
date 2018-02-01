@@ -49,7 +49,11 @@ public class Main {
 
         //TODO sort the abscences using the library function
         Collections.sort(abscences);
-        System.out.println("The sorted abscences : " + abscences);
+        System.out.println("The sorted abscences : " + abscences + "\n");
+
+        //TODO shuffle the abscences using the library function
+        Collections.shuffle(abscences);
+        System.out.println("The Shuffled abscences : " + abscences);
 
     }
 
