@@ -32,7 +32,7 @@ public class Main {
         System.out.println("The percentage of students with less than three abscenses and perfect attendance is : " + attendanceFinder + "\n");
 
         //TODO WHich students had [x] abscences
-        ArrayList<Integer> AttendanceFinder = whichStudent(abscences,5);
+        ArrayList<Integer> AttendanceFinder = whichStudent(abscences, 5);
         System.out.println("These are the number of students with your desired amount of abscences: " + attendanceFinder + "\n");
 
         //TODO Which Percentage of Students
@@ -44,7 +44,7 @@ public class Main {
         System.out.println("The Percentage of students that didnt FE: " + smarties + "\n");
 
         //TODO Add [X] to any elements greater than [Y]
-        ArrayList<Integer> elementChanger = changer(abscences,3,5);
+        ArrayList<Integer> elementChanger = changer(abscences, 3, 5);
         System.out.println("The new ArrayList : " + elementChanger + "\n");
 
         //TODO sort the abscences using the library function
@@ -53,7 +53,11 @@ public class Main {
 
         //TODO shuffle the abscences using the library function
         Collections.shuffle(abscences);
-        System.out.println("The Shuffled abscences : " + abscences);
+        System.out.println("The Shuffled abscences : " + abscences + "\n");
+
+        //TODO How many abscences are unique
+        Set<Integer> uniqueVals = unique(abscences);
+        System.out.println("The unique numbers in the Array are: " + uniqueVals);
 
     }
 
@@ -66,15 +70,17 @@ public class Main {
         }
         return solution;
     }
+
     private static ArrayList<Integer> objects(ArrayList<Integer> abscences) {
         ArrayList<Integer> key = new ArrayList<>();
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i)== 0){
+            if (abscences.get(i) == 0) {
                 key.add(i);
             }
         }
-        return key ;
+        return key;
     }
+
     private static double avg(ArrayList<Integer> abscences) {
         int sum = 0;
         double avg = 0;
@@ -84,38 +90,42 @@ public class Main {
         }
         return avg;
     }
-    private static double perfectPercentage(ArrayList<Integer> abscences){
+
+    private static double perfectPercentage(ArrayList<Integer> abscences) {
         double val1 = 0;
         double val2 = 0;
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) < 3){
+            if (abscences.get(i) < 3) {
                 val1++;
-            if (abscences.get(i) == 0){
-                val2++;
-            }
+                if (abscences.get(i) == 0) {
+                    val2++;
+                }
             }
         }
-        return (val2 / val1)* 100;
+        return (val2 / val1) * 100;
     }
-    public static ArrayList<Integer> whichStudent(ArrayList<Integer> abscences,int howManyAbscences){
+
+    public static ArrayList<Integer> whichStudent(ArrayList<Integer> abscences, int howManyAbscences) {
         ArrayList<Integer> solution = new ArrayList<>();
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) == howManyAbscences){
+            if (abscences.get(i) == howManyAbscences) {
                 solution.add(i);
             }
         }
         return solution;
     }
+
     private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> abscences) {
         ArrayList<Integer> key = new ArrayList<>();
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) == 7){
+            if (abscences.get(i) == 7) {
                 key.add(abscences.get(i));
             }
         }
         return key;
 
     }
+
     private static double whichStudentsComeToClass(ArrayList<Integer> abscences) {
         double sum = 0;
         double averageOfSmart = 0;
@@ -129,15 +139,23 @@ public class Main {
         return (averageOfSmart * 100);
 
     }
+
     public static ArrayList<Integer> changer(ArrayList<Integer> abscences, int value, int bound) {
         ArrayList<Integer> solution = new ArrayList<>();
         for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) > bound){
+            if (abscences.get(i) > bound) {
                 solution.add(abscences.get(i) + value);
             }
         }
         return solution;
     }
-}
 
+    public static Set<Integer> unique(ArrayList<Integer> numbers) {
+        Set<Integer> storeUniques = new HashSet<>();
+        for (int i = 0; i < numbers.size(); i++) {
+            storeUniques.add(numbers.get(i));
+        }
+        return storeUniques;
+    }
+}
 
