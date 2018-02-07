@@ -16,48 +16,61 @@ public class Main {
         System.out.println("\nHello " + name + "\n");
 
         //TODO Create and output List of absences
-        ArrayList<Integer> abscences = storedValues(20);
-        System.out.println("Abscences : " + abscences + "\n");
+        ArrayList<Integer> absences = storedValues(20);
+        System.out.println("absences : " + absences + "\n");
 
         //TODO Find the index with perfect attendance
-        ArrayList perfectAbs = objects(abscences);
+        ArrayList perfectAbs = objects(absences);
         System.out.println("The Index with perfect Attendance's are : " + perfectAbs + "\n");
 
         //TODO Find the average of all the abscences
-        double average = avg(abscences);
+        double average = avg(absences);
         System.out.println("The average is : " + average + "\n");
 
         //TODO What percentage of students had fewer than three abscences and perfect attendance
-        double attendanceFinder = perfectPercentage(abscences);
-        System.out.println("The percentage of students with less than three abscenses and perfect attendance is : " + attendanceFinder + "\n");
+        double attendanceFinder = perfectPercentage(absences);
+        System.out.println("The percentage of students with less than three absences and perfect attendance is : " + attendanceFinder + "\n");
 
         //TODO WHich students had [x] abscences
-        ArrayList<Integer> AttendanceFinder = whichStudent(abscences, 5);
-        System.out.println("These are the number of students with your desired amount of abscences: " + attendanceFinder + "\n");
+        ArrayList<Integer> AttendanceFinder = whichStudent(absences, 5);
+        System.out.println("These are the number of students with your desired amount of absences: " + attendanceFinder + "\n");
 
         //TODO Which Percentage of Students
-        ArrayList<Integer> failures = whichStudentFailed(abscences);
+        ArrayList<Integer> failures = whichStudentFailed(absences);
         System.out.println("The Percentage of students who failed: " + failures + "\n");
 
         //TODO Average of Smart Students
-        double smarties = whichStudentsComeToClass(abscences);
+        double smarties = whichStudentsComeToClass(absences);
         System.out.println("The Percentage of students that didnt FE: " + smarties + "\n");
 
         //TODO Add [X] to any elements greater than [Y]
-        ArrayList<Integer> elementChanger = changer(abscences, 3, 5);
+        ArrayList<Integer> elementChanger = changer(absences, 3, 5);
         System.out.println("The new ArrayList : " + elementChanger + "\n");
 
-        //TODO sort the abscences using the library function
-        Collections.sort(abscences);
-        System.out.println("The sorted abscences : " + abscences + "\n");
+        //TODO sort the absences using the library function
+        Collections.sort(absences);
+        System.out.println("The sorted abscences : " + absences + "\n");
 
-        //TODO shuffle the abscences using the library function
-        Collections.shuffle(abscences);
-        System.out.println("The Shuffled abscences : " + abscences + "\n");
+        //TODO shuffle the absences using the library function
+        Collections.shuffle(absences);
+        System.out.println("The Shuffled abscences : " + absences + "\n");
 
-        //TODO How many abscences are unique
-        Set<Integer> uniqueVals = unique(abscences);
-        System.out.println("The unique numbers in the Array are: " + uniqueVals);
+        //TODO How many absences are unique
+        Set<Integer> uniqueVals = unique(absences);
+        System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
+
+        //TODO How many of each absences are there
+      //  Set<Integer> howManyAbs = abscenceChart(abscences);
+       // System.out.println("****The number of abscences for each number :" + howManyAbs);
+
+        //TODO Sort the absences using a user defined sort function
+        Set<Integer> userSort = sorted(absences);
+        System.out.println("These Are the Sorted values : " + userSort);
+
+        //TODO Shuffle the absences using a user defined shuffle function
+        ArrayList<Integer> shuffle = userShuffle(absences);
+        System.out.println("These Are the shuffled values ; " + shuffle);
+
 
     }
 
@@ -65,7 +78,7 @@ public class Main {
         ArrayList<Integer> solution = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < numOfValues; i++) {
-            int num = rand.nextInt(11);
+            int num = rand.nextInt(5);
             solution.add(num);
         }
         return solution;
@@ -81,23 +94,23 @@ public class Main {
         return key;
     }
 
-    private static double avg(ArrayList<Integer> abscences) {
+    private static double avg(ArrayList<Integer> absences) {
         int sum = 0;
         double avg = 0;
-        for (int i = 0; i < abscences.size(); i++) {
-            sum = sum + abscences.get(i);
-            avg = sum / abscences.size();
+        for (int i = 0; i < absences.size(); i++) {
+            sum = sum + absences.get(i);
+            avg = sum / absences.size();
         }
         return avg;
     }
 
-    private static double perfectPercentage(ArrayList<Integer> abscences) {
+    private static double perfectPercentage(ArrayList<Integer> absences) {
         double val1 = 0;
         double val2 = 0;
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) < 3) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) < 3) {
                 val1++;
-                if (abscences.get(i) == 0) {
+                if (absences.get(i) == 0) {
                     val2++;
                 }
             }
@@ -105,34 +118,34 @@ public class Main {
         return (val2 / val1) * 100;
     }
 
-    public static ArrayList<Integer> whichStudent(ArrayList<Integer> abscences, int howManyAbscences) {
+    public static ArrayList<Integer> whichStudent(ArrayList<Integer> absences, int howManyAbsences) {
         ArrayList<Integer> solution = new ArrayList<>();
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) == howManyAbscences) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == howManyAbsences) {
                 solution.add(i);
             }
         }
         return solution;
     }
 
-    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> abscences) {
+    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> absences) {
         ArrayList<Integer> key = new ArrayList<>();
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) == 7) {
-                key.add(abscences.get(i));
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == 7) {
+                key.add(absences.get(i));
             }
         }
         return key;
 
     }
 
-    private static double whichStudentsComeToClass(ArrayList<Integer> abscences) {
+    private static double whichStudentsComeToClass(ArrayList<Integer> absences) {
         double sum = 0;
         double averageOfSmart = 0;
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) < 7) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) < 7) {
                 sum = sum + 1;
-                averageOfSmart = sum / abscences.size();
+                averageOfSmart = sum / absences.size();
             }
 
         }
@@ -157,5 +170,31 @@ public class Main {
         }
         return storeUniques;
     }
+//    public static Set<Integer> abscenceChart(ArrayList<Integer> numbers){
+//        Set<Integer> storeUniques = new HashSet<>();
+//        for (int i = 0; i < numbers.size(); i++) {
+//            storeUniques.add(numbers.get(i));
+//            if ()
+//        }
+//        return storeUniques;
+
+    private static Set<Integer> sorted(ArrayList<Integer> absences) {
+        Set<Integer> storeVals = new HashSet<>();
+        for (int i = 0; i < absences.size(); i++) {
+            storeVals.add(absences.get(i));
+        }
+        return storeVals;
+    }
+    private static ArrayList<Integer> userShuffle(ArrayList<Integer> absences) {
+        Random rand = new Random();
+        for (int i = 0; i < absences.size(); i++) {
+            int shuffle = rand.nextInt(absences.size());
+            int temp = absences.get(shuffle);
+            absences.set(shuffle,absences.get(i));
+            absences.set(i,temp);
+        }
+        return absences;
+    }
+
 }
 
