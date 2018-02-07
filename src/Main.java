@@ -36,11 +36,11 @@ public class Main {
         System.out.println("These are the number of students with your desired amount of absences: " + attendanceFinder + "\n");
 
         //TODO Which Percentage of Students
-        ArrayList<Integer> failures = whichStudentFailed(absences);
+        ArrayList<Integer> failures = whichStudentFailed(absences,7);
         System.out.println("The Percentage of students who failed: " + failures + "\n");
 
         //TODO Average of Smart Students
-        double smarties = whichStudentsComeToClass(absences);
+        double smarties = whichStudentsComeToClass(absences,7);
         System.out.println("The Percentage of students that didnt FE: " + smarties + "\n");
 
         //TODO Add [X] to any elements greater than [Y]
@@ -128,10 +128,10 @@ public class Main {
         return solution;
     }
 
-    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> absences) {
+    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> absences,int value) {
         ArrayList<Integer> key = new ArrayList<>();
         for (int i = 0; i < absences.size(); i++) {
-            if (absences.get(i) == 7) {
+            if (absences.get(i) == value) {
                 key.add(absences.get(i));
             }
         }
@@ -139,11 +139,11 @@ public class Main {
 
     }
 
-    private static double whichStudentsComeToClass(ArrayList<Integer> absences) {
+    private static double whichStudentsComeToClass(ArrayList<Integer> absences, int value) {
         double sum = 0;
         double averageOfSmart = 0;
         for (int i = 0; i < absences.size(); i++) {
-            if (absences.get(i) < 7) {
+            if (absences.get(i) < value) {
                 sum = sum + 1;
                 averageOfSmart = sum / absences.size();
             }
