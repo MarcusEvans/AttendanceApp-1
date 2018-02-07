@@ -49,19 +49,19 @@ public class Main {
 
         //TODO sort the absences using the library function
         Collections.sort(absences);
-        System.out.println("The sorted abscences : " + absences + "\n");
+        System.out.println("The sorted absences : " + absences + "\n");
 
         //TODO shuffle the absences using the library function
         Collections.shuffle(absences);
-        System.out.println("The Shuffled abscences : " + absences + "\n");
+        System.out.println("The Shuffled absences : " + absences + "\n");
 
         //TODO How many absences are unique
         Set<Integer> uniqueVals = unique(absences);
         System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
 
         //TODO How many of each absences are there
-      //  Set<Integer> howManyAbs = abscenceChart(abscences);
-       // System.out.println("****The number of abscences for each number :" + howManyAbs);
+      //  Set<Integer> howManyAbs = absenceChart(absences);
+       // System.out.println("****The number of absences for each number :" + howManyAbs);
 
         //TODO Sort the absences using a user defined sort function
         Set<Integer> userSort = sorted(absences);
@@ -84,10 +84,10 @@ public class Main {
         return solution;
     }
 
-    private static ArrayList<Integer> objects(ArrayList<Integer> abscences) {
+    private static ArrayList<Integer> objects(ArrayList<Integer> absences) {
         ArrayList<Integer> key = new ArrayList<>();
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) == 0) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == 0) {
                 key.add(i);
             }
         }
@@ -153,11 +153,11 @@ public class Main {
 
     }
 
-    public static ArrayList<Integer> changer(ArrayList<Integer> abscences, int value, int bound) {
+    public static ArrayList<Integer> changer(ArrayList<Integer> absences, int value, int bound) {
         ArrayList<Integer> solution = new ArrayList<>();
-        for (int i = 0; i < abscences.size(); i++) {
-            if (abscences.get(i) > bound) {
-                solution.add(abscences.get(i) + value);
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) > bound) {
+                solution.add(absences.get(i) + value);
             }
         }
         return solution;
