@@ -13,7 +13,7 @@ public class Main {
 
         String name = sc.next();
 
-        System.out.println("\nHello " + name + "\n");
+        System.out.println("\nHi " + name + "\n");
 
         //TODO Create and output List of absences
         ArrayList<Integer> absences = storedValues(20);
@@ -65,11 +65,11 @@ public class Main {
 
         //TODO Sort the absences using a user defined sort function
         Set<Integer> userSort = sorted(absences);
-        System.out.println("These Are the Sorted values : " + userSort);
+        System.out.println("These Are the Sorted values : " + userSort + "\n");
 
         //TODO Shuffle the absences using a user defined shuffle function
         ArrayList<Integer> shuffle = userShuffle(absences);
-        System.out.println("These Are the shuffled values ; " + shuffle);
+        System.out.println("These Are the shuffled values ; " + shuffle + "\n");
 
 
     }
