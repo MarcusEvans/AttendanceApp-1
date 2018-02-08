@@ -15,23 +15,23 @@ public class Main {
 
         System.out.println("\nHi " + name + "\n");
 
-        //TODO Create and output List of absences
+        //Create and output List of absences
         ArrayList<Integer> absences = storedValues(20);
         System.out.println("absences : " + absences + "\n");
 
-        //TODO Find the index with perfect attendance
+        // Find the index with perfect attendance
         ArrayList perfectAbs = objects(absences);
         System.out.println("The Index with perfect Attendance's are : " + perfectAbs + "\n");
 
-        //TODO Find the average of all the abscences
+        // Find the average of all the abscences
         double average = avg(absences);
         System.out.println("The average is : " + average + "\n");
 
-        //TODO What percentage of students had fewer than three abscences and perfect attendance
+        // What percentage of students had fewer than three abscences and perfect attendance
         double attendanceFinder = perfectPercentage(absences);
         System.out.println("The percentage of students with less than three absences and perfect attendance is : " + attendanceFinder + "\n");
 
-        //TODO WHich students had [x] abscences
+        // Which students had [x] abscences
         ArrayList<Integer> AttendanceFinder = whichStudent(absences, 5);
         System.out.println("These are the number of students with your desired amount of absences: " + attendanceFinder + "\n");
 
@@ -39,23 +39,23 @@ public class Main {
         ArrayList<Integer> failures = whichStudentFailed(absences,7);
         System.out.println("The Percentage of students who failed: " + failures + "\n");
 
-        //TODO Average of Smart Students
+        // Average of Smart Students
         double smarties = whichStudentsComeToClass(absences,7);
-        System.out.println("The Percentage of students that didnt FE: " + smarties + "\n");
+        System.out.println("The Percentage of students that didn't FE: " + smarties + "\n");
 
         //TODO Add [X] to any elements greater than [Y]
-        ArrayList<Integer> elementChanger = changer(absences, 3, 5);
+        ArrayList<Integer> elementChanger = elementAdder(absences, 3, 5);
         System.out.println("The new ArrayList : " + elementChanger + "\n");
 
-        //TODO sort the absences using the library function
+        // sort the absences using the library function
         Collections.sort(absences);
         System.out.println("The sorted absences : " + absences + "\n");
 
-        //TODO shuffle the absences using the library function
+        // shuffle the absences using the library function
         Collections.shuffle(absences);
         System.out.println("The Shuffled absences : " + absences + "\n");
 
-        //TODO How many absences are unique
+        // How many absences are unique
         Set<Integer> uniqueVals = unique(absences);
         System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
 
@@ -63,11 +63,11 @@ public class Main {
       //  Set<Integer> howManyAbs = absenceChart(absences);
        // System.out.println("****The number of absences for each number :" + howManyAbs);
 
-        //TODO Sort the absences using a user defined sort function
+        // Sort the absences using a user defined sort function
         Set<Integer> userSort = sorted(absences);
         System.out.println("These Are the Sorted values : " + userSort + "\n");
 
-        //TODO Shuffle the absences using a user defined shuffle function
+        // Shuffle the absences using a user defined shuffle function
         ArrayList<Integer> shuffle = userShuffle(absences);
         System.out.println("These Are the shuffled values ; " + shuffle + "\n");
 
@@ -153,11 +153,14 @@ public class Main {
 
     }
 
-    public static ArrayList<Integer> changer(ArrayList<Integer> absences, int value, int bound) {
+    public static ArrayList<Integer> elementAdder(ArrayList<Integer> absences, int value, int bound) {
         ArrayList<Integer> solution = new ArrayList<>();
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) > bound) {
                 solution.add(absences.get(i) + value);
+                if (absences.get(i) > 15){
+                    solution.add(15);
+                }
             }
         }
         return solution;
