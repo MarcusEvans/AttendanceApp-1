@@ -36,11 +36,11 @@ public class Main {
         System.out.println("These are the number of students with your desired amount of absences: " + attendanceFinder + "\n");
 
         //TODO Which Percentage of Students
-        ArrayList<Integer> failures = whichStudentFailed(absences,7);
+        ArrayList<Integer> failures = whichStudentFailed(absences, 7);
         System.out.println("The Percentage of students who failed: " + failures + "\n");
 
         // Average of Smart Students
-        double smarties = whichStudentsComeToClass(absences,7);
+        double smarties = whichStudentsComeToClass(absences, 7);
         System.out.println("The Percentage of students that didn't FE: " + smarties + "\n");
 
         //TODO Add [X] to any elements greater than [Y]
@@ -60,8 +60,8 @@ public class Main {
         System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
 
         //TODO How many of each absences are there
-      //  Set<Integer> howManyAbs = absenceChart(absences);
-       // System.out.println("****The number of absences for each number :" + howManyAbs);
+        //  Set<Integer> howManyAbs = absenceChart(absences);
+        // System.out.println("****The number of absences for each number :" + howManyAbs);
 
         // Sort the absences using a user defined sort function
         Set<Integer> userSort = sorted(absences);
@@ -71,8 +71,13 @@ public class Main {
         ArrayList<Integer> shuffle = userShuffle(absences);
         System.out.println("These Are the shuffled values ; " + shuffle + "\n");
 
+        //TODO create a ArrayList of 5 distinct names
+        ArrayList<String> names = storedNames();
+        System.out.println("Names in Array : " + names);
+
 
     }
+
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -128,7 +133,7 @@ public class Main {
         return solution;
     }
 
-    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> absences,int value) {
+    private static ArrayList<Integer> whichStudentFailed(ArrayList<Integer> absences, int value) {
         ArrayList<Integer> key = new ArrayList<>();
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) == value) {
@@ -158,7 +163,7 @@ public class Main {
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) > bound) {
                 solution.add(absences.get(i) + value);
-                if (absences.get(i) > 15){
+                if (absences.get(i) > 15) {
                     solution.add(15);
                 }
             }
@@ -188,15 +193,28 @@ public class Main {
         }
         return storeVals;
     }
+
     private static ArrayList<Integer> userShuffle(ArrayList<Integer> absences) {
         Random rand = new Random();
         for (int i = 0; i < absences.size(); i++) {
             int shuffle = rand.nextInt(absences.size());
             int temp = absences.get(shuffle);
-            absences.set(shuffle,absences.get(i));
-            absences.set(i,temp);
+            absences.set(shuffle, absences.get(i));
+            absences.set(i, temp);
         }
         return absences;
+    }
+
+    public static ArrayList<String> storedNames() {
+        ArrayList<String> key = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            key.add("Ron");
+            key.add("Quavo");
+            key.add("Mike");
+            key.add("Sammuel");
+            key.add("G Herbo");
+        }
+        return key;
     }
 
 }
