@@ -45,7 +45,7 @@ public class Main {
 
         //TODO Add [X] to any elements greater than [Y]
         //ArrayList elementChanger = elementAdder(absences, 3, 5);
-       // System.out.println("The new ArrayList with the changed elements: " + elementChanger + "\n");
+        // System.out.println("The new ArrayList with the changed elements: " + elementChanger + "\n");
 
         // sort the absences using the library function
         Collections.sort(absences);
@@ -60,8 +60,8 @@ public class Main {
         System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
 
         //TODO How many of each absences are there
-//        HashMap<Character,Integer> map = absenceChart(absences);
-//        System.out.println("****The number of absences for each number :" + map);
+        HashMap<Integer,Integer> map = absenceChart(absences);
+        System.out.println("****The number of absences for each number :" + map);
 
         // Sort the absences using a user defined sort function
         Set<Integer> userSort = sorted(absences);
@@ -164,21 +164,20 @@ public class Main {
         }
         return storeUniques;
     }
-//    private static HashMap<Array,Integer> absenceChart(ArrayList<Integer> absences) {
-//        HashMap<Array,Integer> map = new HashMap<>();
-//        for (int i = 0; i < absences.size(); i++) {
-//           int charr = Integer.valueOf(absences.get(i));
-//            for (int j = 0; j < charr.size; j++) {
-//                if (map.containsKey(charr[j])){
-//                    map.put(charr[j],map.get(charr[j])+1);
-//                }
-//                else {
-//                    map.put(charr[j],1);
-//                }
-//
-//            }
-//        }
-//    }
+
+    private static HashMap<Integer, Integer> absenceChart(ArrayList<Integer> absences) {
+        Map<Integer, Integer> counts = new HashMap<>();
+        for (int i = 0; i < absences.size(); i++) {
+            int key = absences.get(i);
+            if (counts.containsKey(key)) {
+                counts.put(key, counts.get(key) + 1);
+            } else {
+                counts.put(key, 1);
+            }
+        }
+        return (HashMap<Integer, Integer>) counts;
+    }
+
 
     private static Set<Integer> sorted(ArrayList<Integer> absences) {
         Set<Integer> storeVals = new HashSet<>();
