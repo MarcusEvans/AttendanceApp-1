@@ -94,6 +94,7 @@ public class Main {
         System.out.println("Where all names used at least once?? " + uniqueStrings);
 
         //TODO What are the names of the students with perfect attendance?
+        ArrayList<>
 
         //TODO What are the names of the students who have FE'd some course?
 
