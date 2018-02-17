@@ -272,7 +272,16 @@ public class Main {
         return true;
     }
 
-   // private static ArrayList<String> stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
-     //   }
-    //}
+    private static ArrayList<String> stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
+        for (int i = 0; i < names.size(); i++) {
+        }
+        for (int j = 0; j < names.size(); j++) {
+            
+
+        }
+
+
+        }
+    }
+    }
 }
