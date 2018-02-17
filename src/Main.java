@@ -76,31 +76,31 @@ public class Main {
 
         System.out.println("*****NEXT PIVOTAL TRACKER STORY*****\n");
 
-        //TODO Create and output an ArrayList of 5 distinct names.
+        // Create and output an ArrayList of 5 distinct names.
 
         ArrayList<String> names = storedNames();
         System.out.println("Names in Array : " + names);
 
-        //TODO Shuffle the names using a user-defined shuffle function.
+        // Shuffle the names using a user-defined shuffle function.
         ArrayList<String> nameShuffler = shuffle(names);
         System.out.println("\nThe new Array of Shuffled Names " + nameShuffler + "\n");
 
-        //TODO Using the 5 names, create another list that has the same size as the absences list.
+        // Using the 5 names, create another list that has the same size as the absences list.
         ArrayList<String> listCreator = createList(absences, names);
         System.out.println("New List with same amount of names as absences" + listCreator + "\n");
 
-        //TODO Were all 5 names used at least once?
+        // Were all 5 names used at least once?
         boolean uniqueStrings = uniqueString(names, listCreator);
         System.out.println("Where all names used at least once?? " + uniqueStrings);
 
         //TODO What are the names of the students with perfect attendance?
-        ArrayList<>
+       // ArrayList<String> doubleArray = stuWithNoAbs(names,absences);
+        //System.out.println("\nThese are the names of the students with perfect attendance " + doubleArray + "\n");
 
         //TODO What are the names of the students who have FE'd some course?
 
 
     }
-
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -271,4 +271,8 @@ public class Main {
 
         return true;
     }
+
+   // private static ArrayList<String> stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
+     //   }
+    //}
 }
