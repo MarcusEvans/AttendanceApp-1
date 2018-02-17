@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.*;
 
+import static java.util.Collections.swap;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -60,7 +62,7 @@ public class Main {
         System.out.println("The unique numbers in the Array are: " + uniqueVals + "\n");
 
         //TODO How many of each absences are there
-        HashMap<Integer,Integer> map = absenceChart(absences);
+        HashMap<Integer, Integer> map = absenceChart(absences);
         System.out.println("****The number of absences for each number :" + map);
 
         // Sort the absences using a user defined sort function
@@ -70,6 +72,28 @@ public class Main {
         // Shuffle the absences using a user defined shuffle function
         ArrayList<Integer> shuffle = userShuffle(absences);
         System.out.println("These Are the new shuffled values ; " + shuffle + "\n");
+
+
+        ///////////////////////NEXT PIVOTAL TRACKER STORY
+
+        System.out.println("*****NEXT PIVOTAL TRACKER STORY*****\n");
+
+        //TODO Create and output an ArrayList of 5 distinct names.
+
+        ArrayList<String> names = storedNames();
+        System.out.println("Names in Array : " + names);
+
+        //TODO Shuffle the names using a user-defined shuffle function.
+         ArrayList<String> nameShuffler = shuffle(names);
+        System.out.println("\nThe new Array of Shuffled Names " + nameShuffler + "\n");
+
+        //TODO Using the 5 names, create another list that has the same size as the absences list.
+
+        //TODO Were all 5 names used at least once?
+
+        //TODO What are the names of the students with perfect attendance?
+
+        //TODO What are the names of the students who have FE'd some course?
 
 
     }
@@ -196,5 +220,30 @@ public class Main {
             absences.set(i, temp);
         }
         return absences;
+    }
+
+
+///////////////////////NEXT PIVOTAL TRACKER STORY
+    public static ArrayList<String> storedNames() {
+        ArrayList<String> key = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            key.add("Ron");
+            key.add("Quavo");
+            key.add("Mike");
+            key.add("Sammuel");
+            key.add("G Herbo");
+        }
+        return key;
+    }
+
+    public static ArrayList<String> shuffle(ArrayList<String> names){
+        Random random = new Random();
+        for (int i = 0; i < names.size(); i++) {
+            int shuffle = random.nextInt(names.size());
+            String temp = names.get(shuffle);
+            names.set(shuffle, names.get(i));
+            names.set(i, temp);
+        }
+        return names;
     }
 }
