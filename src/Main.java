@@ -2,8 +2,6 @@ package com.company;
 
 import java.util.*;
 
-import static java.util.Collections.swap;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -84,12 +82,16 @@ public class Main {
         System.out.println("Names in Array : " + names);
 
         //TODO Shuffle the names using a user-defined shuffle function.
-         ArrayList<String> nameShuffler = shuffle(names);
+        ArrayList<String> nameShuffler = shuffle(names);
         System.out.println("\nThe new Array of Shuffled Names " + nameShuffler + "\n");
 
         //TODO Using the 5 names, create another list that has the same size as the absences list.
+        ArrayList<String> listCreator = createList(absences, names);
+        System.out.println("New List with same amount of names as absences" + listCreator + "\n");
 
         //TODO Were all 5 names used at least once?
+        boolean uniqueStrings = uniqueString(names, listCreator);
+        System.out.println("Where all names used at least once?? " + uniqueStrings);
 
         //TODO What are the names of the students with perfect attendance?
 
@@ -97,6 +99,7 @@ public class Main {
 
 
     }
+
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -223,7 +226,7 @@ public class Main {
     }
 
 
-///////////////////////NEXT PIVOTAL TRACKER STORY
+    ///////////////////////NEXT PIVOTAL TRACKER STORY
     public static ArrayList<String> storedNames() {
         ArrayList<String> key = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -236,7 +239,7 @@ public class Main {
         return key;
     }
 
-    public static ArrayList<String> shuffle(ArrayList<String> names){
+    public static ArrayList<String> shuffle(ArrayList<String> names) {
         Random random = new Random();
         for (int i = 0; i < names.size(); i++) {
             int shuffle = random.nextInt(names.size());
@@ -245,5 +248,26 @@ public class Main {
             names.set(i, temp);
         }
         return names;
+    }
+
+    public static ArrayList<String> createList(ArrayList<Integer> absences, ArrayList<String> names) {
+        Random random = new Random();
+        ArrayList<String> solution = new ArrayList<>();
+        for (int i = 0; i < absences.size(); i++) {
+            int rand = random.nextInt(names.size());
+            String temp = names.get(rand);
+            solution.add(temp);
+        }
+        return solution;
+    }
+
+    private static boolean uniqueString(ArrayList<String> names, ArrayList list) {
+        for (int i = 0; i < names.size(); i++) {
+                if(names.size() < list.size() && names.get(i).equals(list.get(i))){
+                    return false;
+                }
+            }
+
+        return true;
     }
 }
