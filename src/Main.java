@@ -91,11 +91,11 @@ public class Main {
 
         // Were all 5 names used at least once?
         boolean uniqueStrings = uniqueString(names, listCreator);
-        System.out.println("Where all names used at least once?? " + uniqueStrings);
+        System.out.println("Where all names used at least once?? " + uniqueStrings + "\n");
 
-        //TODO What are the names of the students with perfect attendance?
-       // ArrayList<String> doubleArray = stuWithNoAbs(names,absences);
-        //System.out.println("\nThese are the names of the students with perfect attendance " + doubleArray + "\n");
+        // What are the names of the students with perfect attendance?
+        int doubleArray = stuWithNoAbs(names,absences);
+
 
         //TODO What are the names of the students who have FE'd some course?
 
@@ -264,24 +264,22 @@ public class Main {
 
     private static boolean uniqueString(ArrayList<String> names, ArrayList list) {
         for (int i = 0; i < names.size(); i++) {
-                if(names.size() < list.size() && names.get(i).equals(list.get(i))){
-                    return false;
-                }
+            if (names.size() < list.size() && names.get(i).equals(list.get(i))) {
+                return false;
             }
+        }
 
         return true;
     }
 
-    private static ArrayList<String> stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
-        for (int i = 0; i < names.size(); i++) {
-        }
-        for (int j = 0; j < names.size(); j++) {
-            
-
+    private static int stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == 0)
+                System.out.println(names.get(i) + " has perfect attendance.");
         }
 
-
-        }
+        return 0;
     }
-    }
+
 }
+
