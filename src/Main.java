@@ -98,9 +98,11 @@ public class Main {
 
 
         //TODO What are the names of the students who have FE'd some course?
+        int superArray = studentWhoFEd(names,absences);
 
 
     }
+
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -156,7 +158,7 @@ public class Main {
         return count;
     }
 
-    private static double whichStudentFailed(ArrayList<Integer> absences) {
+    public static double whichStudentFailed(ArrayList<Integer> absences) {
         double count = 0;
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) >= 7) {
@@ -275,11 +277,21 @@ public class Main {
     private static int stuWithNoAbs(ArrayList<String> names, ArrayList<Integer> absences) {
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) == 0)
-                System.out.println(names.get(i) + " has perfect attendance.");
+                System.out.println(names.get(i) + " has perfect attendance.\n");
         }
 
         return 0;
     }
+
+    private static int studentWhoFEd(ArrayList<String> names, ArrayList<Integer> absences) {
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == 7)
+                System.out.println(names.get(i) + " has FE'd the course\n");
+        }
+
+        return 0;
+    }
+
 
 }
 
