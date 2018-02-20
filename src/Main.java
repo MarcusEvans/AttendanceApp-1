@@ -114,7 +114,7 @@ public class Main {
         System.out.println("Todays Date is : " + todaysDate + "\n");
 
 
-        //TODO How many days have you been alive?  Use date1.equals(date2) to check your result.
+        // How many days have you been alive?  Use date1.equals(date2) to check your result.
         int howOldAmI = ageCounter(2018,1998);
         System.out.println("You are " + howOldAmI * 365 + " many days old");
 
