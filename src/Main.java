@@ -97,11 +97,24 @@ public class Main {
         int doubleArray = stuWithNoAbs(names,absences);
 
 
-        //TODO What are the names of the students who have FE'd some course?
+        // What are the names of the students who have FE'd some course?
         int superArray = studentWhoFEd(names,absences);
+
+        //TODO How many courses does [name] have?
+        int howManyCourses = courseCounter(absences,names,"Quavo");
+        System.out.println("Your specified Name has " + howManyCourses + " courses \n");
+
+        //TODO Which courses did [name] FE?
+        int howManyCoursesDidNameFe = courseCounterFe(absences,names,"Quavo");
+        System.out.println("Your specified Name has FE'd " + howManyCoursesDidNameFe + " courses \n");
+
+        //TODO Generate today's date and output it.
+
+        //TODO How many days have you been alive?  Use date1.equals(date2) to check your result.
 
 
     }
+
 
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
@@ -290,6 +303,26 @@ public class Main {
         }
 
         return 0;
+    }
+
+    private static int courseCounter(ArrayList<Integer> absences, ArrayList<String> names,String chosenName) {
+        int absencesCounter = 0;
+        for (int i = 0; i < absences.size(); i++) {
+            if (names.get(i).equals(chosenName)){
+                absencesCounter ++;
+            }
+        }
+        return absencesCounter;
+    }
+
+    private static int courseCounterFe(ArrayList<Integer> absences, ArrayList<String> names, String chosenName) {
+        int absencesFeCounter = 0;
+        for (int i = 0; i < absences.size(); i++) {
+            if (names.get(i).equals(chosenName) && absences.get(i) >= 7){
+                absencesFeCounter ++;
+            }
+        }
+        return absencesFeCounter;
     }
 
 
