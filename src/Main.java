@@ -95,30 +95,41 @@ public class Main {
         System.out.println("Where all names used at least once?? " + uniqueStrings + "\n");
 
         // What are the names of the students with perfect attendance?
-        int doubleArray = stuWithNoAbs(names,absences);
+        int doubleArray = stuWithNoAbs(names, absences);
 
 
         // What are the names of the students who have FE'd some course?
-        int superArray = studentWhoFEd(names,absences);
+        int superArray = studentWhoFEd(names, absences);
 
         // How many courses does [name] have?
-        int howManyCourses = courseCounter(absences,names,"Quavo");
+        int howManyCourses = courseCounter(absences, names, "Quavo");
         System.out.println("Your specified Name has " + howManyCourses + " courses \n");
 
         // Which courses did [name] FE?
-        int howManyCoursesDidNameFe = courseCounterFe(absences,names,"Quavo");
+        int howManyCoursesDidNameFe = courseCounterFe(absences, names, "Quavo");
         System.out.println("Your specified Name has FE'd " + howManyCoursesDidNameFe + " courses \n");
 
-        //TODO Generate today's date and output it.
+        // Generate today's date and output it.
         LocalDate todaysDate = todaysActualDate();
         System.out.println("Todays Date is : " + todaysDate + "\n");
 
 
         //TODO How many days have you been alive?  Use date1.equals(date2) to check your result.
+        int howOldAmI = ageCounter(2018,1998);
+        System.out.println("You are " + howOldAmI + "  many days old");
+
+        //TODO Create a list of LocalDate objects.
+
+        //TODO What are the names of students who have the longest number of days since an absence?
+
+        //TODO What is the range of absence dates?
+
+        //TODO What are the indexes of the students who have [X] absence date?
+
+        //TODO What are the indexes of the students who have the same absence date?
 
 
     }
-
 
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
@@ -309,11 +320,11 @@ public class Main {
         return 0;
     }
 
-    private static int courseCounter(ArrayList<Integer> absences, ArrayList<String> names,String chosenName) {
+    private static int courseCounter(ArrayList<Integer> absences, ArrayList<String> names, String chosenName) {
         int absencesCounter = 0;
         for (int i = 0; i < absences.size(); i++) {
-            if (names.get(i).equals(chosenName)){
-                absencesCounter ++;
+            if (names.get(i).equals(chosenName)) {
+                absencesCounter++;
             }
         }
         return absencesCounter;
@@ -322,8 +333,8 @@ public class Main {
     private static int courseCounterFe(ArrayList<Integer> absences, ArrayList<String> names, String chosenName) {
         int absencesFeCounter = 0;
         for (int i = 0; i < absences.size(); i++) {
-            if (names.get(i).equals(chosenName) && absences.get(i) >= 7){
-                absencesFeCounter ++;
+            if (names.get(i).equals(chosenName) && absences.get(i) >= 7) {
+                absencesFeCounter++;
             }
         }
         return absencesFeCounter;
@@ -332,6 +343,13 @@ public class Main {
     private static LocalDate todaysActualDate() {
         LocalDate.now();
         return LocalDate.now();
+    }
+
+    private static int ageCounter(int currentYear, int birthYear) {
+        LocalDate.now();
+        int age = currentYear - birthYear;
+
+        return age;
     }
 
 
