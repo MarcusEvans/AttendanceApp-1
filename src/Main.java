@@ -100,7 +100,7 @@ public class Main {
         // What are the names of the students who have FE'd some course?
         int superArray = studentWhoFEd(names,absences);
 
-        //TODO How many courses does [name] have?
+        // How many courses does [name] have?
         int howManyCourses = courseCounter(absences,names,"Quavo");
         System.out.println("Your specified Name has " + howManyCourses + " courses \n");
 
