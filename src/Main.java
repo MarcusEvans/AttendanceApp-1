@@ -8,13 +8,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("\n\n******* Welcome to the AttendanceApp!********\n");
 
-        System.out.println("What is your name??\n");
 
-        Scanner sc = new Scanner(System.in);
+        String name = "Marcus";
 
-        String name = sc.next();
-
-        System.out.println("\nHi " + name + "\n");
+        System.out.println("\nHi " + name + "!!!!\n");
 
         //Create and output List of absences
         ArrayList<Integer> absences = storedValues(10);
@@ -91,7 +88,7 @@ public class Main {
         System.out.println("New List with same amount of names as absences" + listCreator + "\n");
 
         // Were all 5 names used at least once?
-        boolean uniqueStrings = uniqueString(names, listCreator);
+        boolean uniqueStrings = uniqueString(names);
         System.out.println("Where all names used at least once?? " + uniqueStrings + "\n");
 
         // What are the names of the students with perfect attendance?
@@ -292,13 +289,13 @@ public class Main {
         return solution;
     }
 
-    private static boolean uniqueString(ArrayList<String> names, ArrayList list) {
+    private static boolean uniqueString(ArrayList<String> names) {
         for (int i = 0; i < names.size(); i++) {
-            if (names.size() < list.size() && names.get(i).equals(list.get(i))) {
+            if (! names.contains(names.get(i))){
                 return false;
             }
-        }
 
+        }
         return true;
     }
 
