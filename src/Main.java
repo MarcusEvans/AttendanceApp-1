@@ -116,7 +116,7 @@ public class Main {
 
         //TODO How many days have you been alive?  Use date1.equals(date2) to check your result.
         int howOldAmI = ageCounter(2018,1998);
-        System.out.println("You are " + howOldAmI + "  many days old");
+        System.out.println("You are " + howOldAmI * 365 + " many days old");
 
         //TODO Create a list of LocalDate objects.
 
