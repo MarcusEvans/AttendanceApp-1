@@ -1,5 +1,6 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
@@ -104,11 +105,14 @@ public class Main {
         int howManyCourses = courseCounter(absences,names,"Quavo");
         System.out.println("Your specified Name has " + howManyCourses + " courses \n");
 
-        //TODO Which courses did [name] FE?
+        // Which courses did [name] FE?
         int howManyCoursesDidNameFe = courseCounterFe(absences,names,"Quavo");
         System.out.println("Your specified Name has FE'd " + howManyCoursesDidNameFe + " courses \n");
 
         //TODO Generate today's date and output it.
+        LocalDate todaysDate = todaysActualDate();
+        System.out.println("Todays Date is : " + todaysDate + "\n");
+
 
         //TODO How many days have you been alive?  Use date1.equals(date2) to check your result.
 
@@ -323,6 +327,11 @@ public class Main {
             }
         }
         return absencesFeCounter;
+    }
+
+    private static LocalDate todaysActualDate() {
+        LocalDate.now();
+        return LocalDate.now();
     }
 
 
