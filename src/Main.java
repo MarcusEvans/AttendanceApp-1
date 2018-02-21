@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 public class Main {
@@ -112,10 +113,14 @@ public class Main {
 
 
         // How many days have you been alive?  Use date1.equals(date2) to check your result.
-        int howOldAmI = ageCounter(2018,1998);
-        System.out.println("You are " + howOldAmI * 365 + " many days old");
+        LocalDate birthDated = LocalDate.of(1998, Month.JANUARY,13);
+        long howOldAmI = ageCounter(birthDated);
+        System.out.println("You are " + howOldAmI + " many days old");
 
         //TODO Create a list of LocalDate objects.
+        long localDateObjects = dateObjects(birthDated,names);
+        System.out.println(localDateObjects);
+
 
         //TODO What are the names of students who have the longest number of days since an absence?
 
@@ -127,6 +132,7 @@ public class Main {
 
 
     }
+
 
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
@@ -338,15 +344,28 @@ public class Main {
     }
 
     private static LocalDate todaysActualDate() {
-        LocalDate.now();
         return LocalDate.now();
     }
 
-    private static int ageCounter(int currentYear, int birthYear) {
-        LocalDate.now();
-        int age = currentYear - birthYear;
+    private static long ageCounter(LocalDate birthDay) {
+         LocalDate todaysDate = LocalDate.now();
 
-        return age;
+         long num1 = birthDay.toEpochDay();
+         long num2 = todaysDate.toEpochDay();
+
+         long daysOld =  num2 - num1;
+        return daysOld;
+    }
+
+    private static ArrayList<LocalDate> dateObjects(LocalDate birthDated, ArrayList<String> names) {
+        Random rand = new Random();
+        ArrayList<LocalDate> dates = new ArrayList<>();
+        for (int i = 0; i < names.size(); i++) {
+            int temp = rand.nextInt(5)+1;
+            dates.add(birthDated.minus(temp);
+
+        }
+        return dates;
     }
 
 
