@@ -118,8 +118,13 @@ public class Main {
         System.out.println("You are " + howOldAmI + " many days old");
 
         //TODO Create a list of LocalDate objects.
-        long localDateObjects = dateObjects(birthDated,names);
+        ArrayList<LocalDate> localDateObjects = dateObjects(birthDated,names);
         System.out.println(localDateObjects);
+
+        //TODO What are the names of the students with the fewest absences?
+
+        ArrayList<String> minAttendance = fewAbsences(names,absences);
+        System.out.println("The names of students with the fewest absences are : " + minAttendance + "\n");
 
 
         //TODO What are the names of students who have the longest number of days since an absence?
@@ -132,8 +137,6 @@ public class Main {
 
 
     }
-
-
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -361,11 +364,24 @@ public class Main {
         Random rand = new Random();
         ArrayList<LocalDate> dates = new ArrayList<>();
         for (int i = 0; i < names.size(); i++) {
-            int temp = rand.nextInt(5)+1;
-            dates.add(birthDated.minus(temp);
-
+            int temp = rand.nextInt(5) + 1;
+            dates.add(birthDated.minusDays(temp));
         }
         return dates;
+    }
+
+    private static ArrayList<String> fewAbsences(ArrayList<String> names, ArrayList<Integer> absences) {
+        ArrayList<String> nameSolution = new ArrayList<>();
+        int min = absences.get(0);
+        for (int i = 0; i < names.size(); i++) {
+            if (min > absences.get(i)){
+                min = absences.get(i);
+                if (names.get(i).equals(min)){
+                    nameSolution.add(names.get(i));
+                }
+            }
+        }
+        return nameSolution;
     }
 
 
