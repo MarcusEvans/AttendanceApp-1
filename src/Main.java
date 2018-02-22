@@ -115,11 +115,11 @@ public class Main {
         // How many days have you been alive?  Use date1.equals(date2) to check your result.
         LocalDate birthDated = LocalDate.of(1998, Month.JANUARY,13);
         long howOldAmI = ageCounter(birthDated);
-        System.out.println("You are " + howOldAmI + " many days old");
+        System.out.println("You are " + howOldAmI + " many days old\n");
 
         //TODO Create a list of LocalDate objects.
         ArrayList<LocalDate> localDateObjects = dateObjects(birthDated,names);
-        System.out.println(localDateObjects);
+        System.out.println(localDateObjects + "\n");
 
         //TODO What are the names of the students with the fewest absences?
 
