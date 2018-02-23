@@ -94,10 +94,12 @@ public class Main {
 
         // What are the names of the students with perfect attendance?
         int doubleArray = stuWithNoAbs(names, absences);
+        System.out.println("Students with perfect attendance" + doubleArray + "\n");
 
 
         // What are the names of the students who have FE'd some course?
         int superArray = studentWhoFEd(names, absences);
+        System.out.println("Students who Failed " + superArray + "\n");
 
         // How many courses does [name] have?
         int howManyCourses = courseCounter(absences, names, "Quavo");
@@ -264,6 +266,8 @@ public class Main {
 
 
     ///////////////////////NEXT PIVOTAL TRACKER STORY
+
+
     public static ArrayList<String> storedNames() {
         ArrayList<String> key = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -319,7 +323,7 @@ public class Main {
 
     private static int studentWhoFEd(ArrayList<String> names, ArrayList<Integer> absences) {
         for (int i = 0; i < absences.size(); i++) {
-            if (absences.get(i) == 7)
+            if (absences.get(i) >= 7)
                 System.out.println(names.get(i) + " has FE'd the course\n");
         }
 
