@@ -119,17 +119,18 @@ public class Main {
         long howOldAmI = ageCounter(birthDated);
         System.out.println("You are " + howOldAmI + " many days old\n");
 
-        //TODO Create a list of LocalDate objects.
+        //Create a list of LocalDate objects.
         ArrayList<LocalDate> localDateObjects = dateObjects(birthDated,names);
         System.out.println(localDateObjects + "\n");
 
         //TODO What are the names of the students with the fewest absences?
-
         ArrayList<String> minAttendance = fewAbsences(names,absences);
         System.out.println("The names of students with the fewest absences are : " + minAttendance + "\n");
 
-
         //TODO What are the names of students who have the longest number of days since an absence?
+        ArrayList<String> longestNumOfDays = longNumDay(names,absences);
+        System.out.println(" These are the students with the longest amount of days since a absence " + longestNumOfDays + "\n");
+
 
         //TODO What is the range of absence dates?
 
@@ -137,8 +138,17 @@ public class Main {
 
         //TODO What are the indexes of the students who have the same absence date?
 
+        ///////////////////////Next Pivotal Tracker Story
+
+        //TODO Create a Record class.
+
+        Student xavier = new Student();
+
+
 
     }
+
+
 
     private static ArrayList<Integer> storedValues(int numOfValues) {
         ArrayList<Integer> solution = new ArrayList<>();
@@ -265,7 +275,7 @@ public class Main {
     }
 
 
-    ///////////////////////NEXT PIVOTAL TRACKER STORY
+    ///////////////////////TODO      NEXT PIVOTAL TRACKER STORY    ///////////////////////
 
 
     public static ArrayList<String> storedNames() {
@@ -386,6 +396,17 @@ public class Main {
             }
         }
         return nameSolution;
+    }
+
+    private static ArrayList<String> longNumDay(ArrayList<String> names, ArrayList<Integer> absences) {
+        ArrayList<String> solution = new ArrayList<>();
+        LocalDate todaysDate = LocalDate.now();
+        for (int i = 0; i < absences.size(); i++) {
+            if (todaysDate.toEpochDay() < absences.get(i)){
+                solution.add(names.get(i));
+            }
+        }
+        return solution;
     }
 
 
