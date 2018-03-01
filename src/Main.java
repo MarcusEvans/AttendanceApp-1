@@ -142,7 +142,10 @@ public class Main {
 
         //TODO Create a Record class.
 
-        Student xavier = new Student();
+        Student xavier = new Student(names,absences,todaysDate);
+        System.out.println(xavier);
+
+
 
 
 
